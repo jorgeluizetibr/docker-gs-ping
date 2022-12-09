@@ -43,3 +43,6 @@ docker volume create roach
 
 docker volume list
 
+docker network create -d bridge mynet
+
+docker network list
