@@ -32,3 +32,14 @@ Thus, feedback is welcome, but please no nits or pedantry. Ain't nobody got time
 docker build -t docker-gs-ping:multistage -f Dockerfile.multistage .
 
 docker run -d -p 8080:8080 docker-gs-ping
+
+docker ps --all
+
+docker run -d -p 8080:8080 --name rest-server docker-gs-ping
+
+docker ps
+
+docker volume create roach
+
+docker volume list
+
