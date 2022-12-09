@@ -26,3 +26,9 @@ Thus, feedback is welcome, but please no nits or pedantry. Ain't nobody got time
 ## License
 
 [Apache-2.0 License](LICENSE)
+
+## Lab
+
+docker build -t docker-gs-ping:multistage -f Dockerfile.multistage .
+
+docker run -d -p 8080:8080 docker-gs-ping
