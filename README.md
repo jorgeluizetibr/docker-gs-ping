@@ -29,6 +29,8 @@ Thus, feedback is welcome, but please no nits or pedantry. Ain't nobody got time
 
 ## Lab
 
+https://docs.docker.com/language/golang/
+
 docker build -t docker-gs-ping:multistage -f Dockerfile.multistage .
 
 docker run -d -p 8080:8080 docker-gs-ping
@@ -46,3 +48,15 @@ docker volume list
 docker network create -d bridge mynet
 
 docker network list
+
+docker run -d \
+  --name roach \
+  --hostname db \
+  --network mynet \
+  -p 26257:26257 \
+  -p 8080:8080 \
+  -v roach:/cockroach/cockroach-data \
+  cockroachdb/cockroach:latest-v20.1 start-single-node \
+  --insecure
+
+docker exec -it roach ./cockroach sql --insecure
